@@ -12,5 +12,9 @@
       "../common/mixins",
       "./mixins"
     ]
+  },
+  "student": {
+    "dataSource": "Mongodb",
+    "public": true
   }
 }

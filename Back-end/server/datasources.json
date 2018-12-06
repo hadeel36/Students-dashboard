@@ -2,10 +2,10 @@
   "Mongodb": {
     "host": "localhost",
     "port": 27017,
-    "useNewUrlParser": true,
     "database": "",
     "password": "",
     "name": "Mongodb",
+    "useNewUrlParser": true,
     "user": "",
     "connector": "mongodb"
   }
