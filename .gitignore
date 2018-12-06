@@ -60,8 +60,9 @@ typings/
 # next.js build output
 .next
 
-# DS_Store files
+# System Files
 .DS_Store
+Thumbs.db
 
 #Back-end
 *.csv
@@ -81,3 +82,35 @@ typings/
 .strong-pm
 coverage
 npm-debug.log
+
+#Client-side
+
+# compiled output
+/dist
+/tmp
+/out-tsc
+
+# IDEs and editors
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
