@@ -1,5 +1,5 @@
 {
-  "name": "Students-dashboard-client-side",
+  "name": "students-dashboard",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
