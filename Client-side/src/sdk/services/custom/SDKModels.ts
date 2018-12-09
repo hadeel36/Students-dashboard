@@ -1,6 +1,7 @@
 /* tslint:disable */
 import { Injectable } from '@angular/core';
 import { Student } from '../../models/Student';
+import { Container } from '../../models/Container';
 
 export interface Models { [name: string]: any }
 
@@ -9,6 +10,7 @@ export class SDKModels {
 
   private models: Models = {
     Student: Student,
+    Container: Container,
     
   };
 
