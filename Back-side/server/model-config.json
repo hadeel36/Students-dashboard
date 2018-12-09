@@ -20,5 +20,9 @@
   "ACL": {
     "dataSource": "Mongodb",
     "public": false
+  },
+  "container": {
+    "dataSource": "storage",
+    "public": true
   }
 }
