@@ -11,10 +11,9 @@
 }
 
 .mat-drawer-container {
-  margin-top: 72px;
+  margin-top: 65px;
   min-height: 100%;
   height: auto;
-  left: -8px;
 }
 
 .mat-drawer {
