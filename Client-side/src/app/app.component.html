@@ -1,11 +1,6 @@
+<mat-toolbar class="Stud-toolbar">Students List</mat-toolbar>
 <mat-sidenav-container class="example-container">
-  <mat-sidenav
-    #sidenav
-    mode="side"
-    [(opened)]="opened"
-    (opened)="events.push('open!')"
-    (closed)="events.push('close!')"
-  >
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened">
     <ul>
       <li><a>Students List</a></li>
       <li><a>Add Student</a></li>
@@ -13,7 +8,6 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <mat-toolbar>Students List</mat-toolbar>
     <!--
       <p><mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox></p>
       <p>

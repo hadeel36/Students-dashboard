@@ -7,5 +7,6 @@ import { MatModulesModule } from 'src/app/shared/mat-modules/mat-modules.module'
 @NgModule({
   declarations: [StudentsListComponent],
   imports: [MatModulesModule],
+  exports: [StudentsListComponent],
 })
 export class StudentsListModule {}

@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { MatModulesModule } from './shared/mat-modules/mat-modules.module';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { StudentsListModule } from './components/students-list/students-list.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
     MatModulesModule,
     FormsModule,
     AppRoutingModule,
+    StudentsListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

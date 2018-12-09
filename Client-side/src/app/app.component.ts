@@ -6,10 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  events: string[] = [];
-  opened = true;
-
-  shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h =>
-    h.test(window.location.host),
-  );
+  public opened = true;
 }

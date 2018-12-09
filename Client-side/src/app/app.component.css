@@ -1,0 +1,29 @@
+.Stud-toolbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  background-color: #2e164a;
+  color: #fff;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+}
+
+.mat-drawer-container {
+  margin-top: 72px;
+  min-height: 100%;
+  height: auto;
+  left: -8px;
+}
+
+.mat-drawer {
+  width: 211px;
+  background-color: #bbbcca;
+  color: #fff;
+  box-shadow: 6px 0 6px rgba(0, 0, 0, 0.1);
+}
+
+.mat-drawer-content {
+  margin-left: 232px !important;
+}
