@@ -16,5 +16,9 @@
   "student": {
     "dataSource": "Mongodb",
     "public": true
+  },
+  "ACL": {
+    "dataSource": "Mongodb",
+    "public": false
   }
 }
