@@ -11,9 +11,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { StudentsListModule } from './components/students-list/students-list.module';
 import { AddEditStudentComponent } from './components/add-edit-student/add-edit-student.component';
+import { ConfirmDeleteDialogComponent } from './components/confirm-delete-dialog/confirm-delete-dialog.component';
 
 @NgModule({
-  declarations: [AppComponent, AddEditStudentComponent],
+  declarations: [
+    AppComponent,
+    AddEditStudentComponent,
+    ConfirmDeleteDialogComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -26,5 +31,6 @@ import { AddEditStudentComponent } from './components/add-edit-student/add-edit-
   ],
   providers: [],
   bootstrap: [AppComponent],
+  entryComponents: [ConfirmDeleteDialogComponent],
 })
 export class AppModule {}

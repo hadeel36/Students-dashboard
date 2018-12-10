@@ -34,6 +34,11 @@ export class AddEditStudentComponent implements OnInit {
           this.studentInfo = data;
           this.createStudentForm();
           this.studentForm.patchValue(data);
+          if (data.photo) {
+            this.selectedImgUrl = `http://0.0.0.0:3000/api//containers/images/download/${
+              this.selectedStudentId
+            }.png`;
+          }
         });
     }
 

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
+import { ConfirmDeleteDialogComponent } from '../confirm-delete-dialog/confirm-delete-dialog.component';
 // Services
 import { StudentApi, StudentInterface } from 'src/sdk';
-import { HttpClient } from '@angular/common/http';
 
 const EDIT_STUDENT_URL = 'student/edit/';
 @Component({
@@ -20,12 +21,16 @@ export class StudentsListComponent implements OnInit {
   public studentsList: Array<StudentInterface>;
 
   constructor(
+    public dialog: MatDialog,
     private studentApi: StudentApi,
     private router: Router,
-    private http: HttpClient,
   ) {}
 
   ngOnInit() {
+    this.getAllStudents();
+  }
+
+  getAllStudents() {
     this.studentApi.find().subscribe((data: any) => {
       this.studentsList = data;
     });
@@ -35,24 +40,18 @@ export class StudentsListComponent implements OnInit {
     this.router.navigate([`${EDIT_STUDENT_URL}${studentId}`]);
   }
 
-  // getImgURL(studentId) {
-  //   let defaultImg = true;
-  //   this.http.get(`http://0.0.0.0:3000/api//containers/images/download/${studentId}.png`).subscribe(res => {
-  //     if (res) {
-  //       defaultImg = false;
-  //     } else {
-  //       defaultImg = true;
-  //     }
-  //   });
-  //   if (defaultImg) {
-  //     return '../../../assets/images/avatar.png';
-  //    } else {
-  //      return `http://0.0.0.0:3000/api//containers/images/download/${studentId}.png`
-  //    }
-  // }
-
   deleteStudent(studentId) {
     event.stopPropagation();
-    console.log(studentId);
+    this.openConfirmDialog(studentId);
+  }
+
+  openConfirmDialog(studentId): void {
+    const dialogRef = this.dialog.open(ConfirmDeleteDialogComponent, {
+      data: { studentId: studentId },
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getAllStudents();
+    });
   }
 }
