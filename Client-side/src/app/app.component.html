@@ -1,10 +1,25 @@
-<mat-toolbar class="Stud-toolbar">Students List</mat-toolbar>
+<mat-toolbar class="Stud-toolbar">
+  <button mat-icon-button (click)="navToggle()">
+    <mat-icon aria-label="Close/open nav side bar">menu</mat-icon>
+  </button>
+  Students List
+</mat-toolbar>
 <mat-sidenav-container class="example-container">
   <mat-sidenav #sidenav mode="side" [(opened)]="opened">
-    <ul>
-      <li><a>Students List</a></li>
-      <li><a>Add Student</a></li>
-    </ul>
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <a routerLink="/">
+          <mat-icon>people</mat-icon>
+          Students List
+        </a>
+      </mat-list-item>
+      <mat-list-item role="listitem"
+        ><a routerLink="student/add">
+          <mat-icon>person_add</mat-icon>
+          Add Student
+        </a>
+      </mat-list-item>
+    </mat-list>
   </mat-sidenav>
 
   <mat-sidenav-content>

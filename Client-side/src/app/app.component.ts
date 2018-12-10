@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public opened = true;
+
+  constructor() {}
+
+  navToggle() {
+    this.opened = !this.opened;
+  }
 }

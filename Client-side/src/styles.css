@@ -11,3 +11,14 @@ body {
   height: 100%;
   margin: 0;
 }
+
+a {
+  align-items: center;
+  display: flex;
+  text-decoration: none;
+  color: #fff;
+}
+
+a:hover {
+  color: #2e164a;
+}
