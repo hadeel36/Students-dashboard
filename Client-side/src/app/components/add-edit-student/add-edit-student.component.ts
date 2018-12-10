@@ -46,6 +46,7 @@ export class AddEditStudentComponent implements OnInit {
       last_name: new FormControl('', [Validators.required]),
       birth_date: new FormControl(new Date(), [Validators.required]),
       hobbies: new FormControl(''),
+      photo: new FormControl(false),
     });
   }
 
@@ -61,7 +62,11 @@ export class AddEditStudentComponent implements OnInit {
 
   onUpload() {
     const uploadData = new FormData();
-    uploadData.append('myFile', this.selectedFile, this.selectedStudentId);
+    uploadData.append(
+      'myFile',
+      this.selectedFile,
+      `${this.selectedStudentId}.png`,
+    );
     this.http
       .post(
         LoopBackConfig.getPath() +
@@ -72,11 +77,12 @@ export class AddEditStudentComponent implements OnInit {
       )
       .subscribe(res => {
         console.log(res);
+        this.studentForm.controls['photo'].setValue(true);
       });
   }
 
   submit(studentFormValue) {
-    console.log(studentFormValue);
+    console.log(this.studentForm.value);
     if (this.action === 'add') {
       this.studentApi
         .create(studentFormValue)

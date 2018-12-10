@@ -9,3 +9,9 @@
   width: 100%;
   margin: 15px;
 }
+
+.student-list-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}

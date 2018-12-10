@@ -3,7 +3,18 @@
     <!-- Photo Column -->
     <ng-container matColumnDef="photo">
       <th mat-header-cell *matHeaderCellDef></th>
-      <td mat-cell *matCellDef="let student">{{ student.photo }}</td>
+      <td mat-cell *matCellDef="let student">
+        <img
+          class="student-list-img"
+          [src]="
+            student.photo
+              ? 'http://0.0.0.0:3000/api//containers/images/download/' +
+                student.id +
+                '.png'
+              : '../../../assets/images/avatar.png'
+          "
+        />
+      </td>
     </ng-container>
 
     <!-- Name Column -->
