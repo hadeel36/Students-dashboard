@@ -34,9 +34,10 @@ Git clone the app
      node .
      ```
 
-  - To open [swagger api](http://localhost:3000/explorer) `http://localhost:3000/explorer)`
+  - To open [swagger api](http://localhost:3000/explorer) `http://localhost:3000/explorer`
 
 - To run the Client side:
+
   In another terminal screen
 
 ```
