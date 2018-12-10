@@ -12,6 +12,9 @@ const EDIT_STUDENT_URL = 'student/edit/';
   styleUrls: ['./students-list.component.css'],
 })
 export class StudentsListComponent implements OnInit {
+  limit = 10;
+  skip = 0;
+  studentsCount: 0;
   public displayedColumns: Array<string> = [
     'photo',
     'name',
@@ -28,11 +31,21 @@ export class StudentsListComponent implements OnInit {
 
   ngOnInit() {
     this.getAllStudents();
+    this.getStudentsCount();
   }
 
-  getAllStudents() {
-    this.studentApi.find().subscribe((data: any) => {
-      this.studentsList = data;
+  getAllStudents(limit = this.limit, skip = this.skip) {
+    console.log(limit);
+    this.studentApi
+      .find({ limit: limit, skip: skip })
+      .subscribe((data: any) => {
+        this.studentsList = data;
+      });
+  }
+
+  getStudentsCount() {
+    this.studentApi.getCount().subscribe(data => {
+      this.studentsCount = data.count;
     });
   }
 
@@ -45,6 +58,10 @@ export class StudentsListComponent implements OnInit {
     this.openConfirmDialog(studentId);
   }
 
+  onPaginateChange(event) {
+    this.getAllStudents(event.pageSize, event.pageSize * event.pageIndex);
+  }
+
   openConfirmDialog(studentId): void {
     const dialogRef = this.dialog.open(ConfirmDeleteDialogComponent, {
       data: { studentId: studentId },
@@ -52,6 +69,7 @@ export class StudentsListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.getAllStudents();
+      this.getStudentsCount();
     });
   }
 }

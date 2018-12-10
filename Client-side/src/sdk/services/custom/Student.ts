@@ -5,26 +5,24 @@ import { SDKModels } from './SDKModels';
 import { BaseLoopBackApi } from '../core/base.service';
 import { LoopBackConfig } from '../../lb.config';
 import { LoopBackAuth } from '../core/auth.service';
-import { LoopBackFilter,  } from '../../models/BaseModels';
+import { LoopBackFilter } from '../../models/BaseModels';
 import { ErrorHandler } from '../core/error.service';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Student } from '../../models/Student';
-
 
 /**
  * Api services for the `Student` model.
  */
 @Injectable()
 export class StudentApi extends BaseLoopBackApi {
-
   constructor(
     @Inject(HttpClient) protected http: HttpClient,
     @Inject(SDKModels) protected models: SDKModels,
     @Inject(LoopBackAuth) protected auth: LoopBackAuth,
-    @Optional() @Inject(ErrorHandler) protected errorHandler: ErrorHandler
+    @Optional() @Inject(ErrorHandler) protected errorHandler: ErrorHandler,
   ) {
-    super(http,  models, auth, errorHandler);
+    super(http, models, auth, errorHandler);
   }
 
   /**
@@ -43,16 +41,30 @@ export class StudentApi extends BaseLoopBackApi {
    * This usually means the response is a `Student` object.)
    * </em>
    */
-  public patchOrCreate(data: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "PATCH";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/students";
+  public patchOrCreate(
+    data: any = {},
+    customHeaders?: Function,
+  ): Observable<any> {
+    let _method: string = 'PATCH';
+    let _url: string =
+      LoopBackConfig.getPath() +
+      '/' +
+      LoopBackConfig.getApiVersion() +
+      '/students';
     let _routeParams: any = {};
     let _postBody: any = {
-      data: data
+      data: data,
     };
     let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    let result = this.request(
+      _method,
+      _url,
+      _routeParams,
+      _urlParams,
+      _postBody,
+      null,
+      customHeaders,
+    );
     return result;
   }
 
@@ -74,18 +86,54 @@ export class StudentApi extends BaseLoopBackApi {
    * This usually means the response is a `Student` object.)
    * </em>
    */
-  public patchAttributes(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "PATCH";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/students/:id";
+  public patchAttributes(
+    id: any,
+    data: any = {},
+    customHeaders?: Function,
+  ): Observable<any> {
+    let _method: string = 'PATCH';
+    let _url: string =
+      LoopBackConfig.getPath() +
+      '/' +
+      LoopBackConfig.getApiVersion() +
+      '/students/:id';
     let _routeParams: any = {
-      id: id
+      id: id,
     };
     let _postBody: any = {
-      data: data
+      data: data,
     };
     let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    let result = this.request(
+      _method,
+      _url,
+      _routeParams,
+      _urlParams,
+      _postBody,
+      null,
+      customHeaders,
+    );
+    return result;
+  }
+
+  public getCount(): Observable<any> {
+    let _method: string = 'GET';
+    let _url: string =
+      LoopBackConfig.getPath() +
+      '/' +
+      LoopBackConfig.getApiVersion() +
+      '/students/count';
+    let _routeParams: any = {};
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(
+      _method,
+      _url,
+      _routeParams,
+      _urlParams,
+      _postBody,
+      null,
+    );
     return result;
   }
 
@@ -94,6 +142,6 @@ export class StudentApi extends BaseLoopBackApi {
    * i.e. `Student`.
    */
   public getModelName() {
-    return "Student";
+    return 'Student';
   }
 }
