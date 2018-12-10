@@ -41,10 +41,9 @@ Git clone the app
 
   In another terminal screen
 
-```
-cd Client-side
-npm install
-ng serve
-```
-
-- Go to `http://localhost:4200/`
+  ```
+  cd Client-side
+  npm install
+  ng serve
+  Go to `http://localhost:4200/`
+  ```
