@@ -1,0 +1,13 @@
+.student-img-wrapper {
+  width: 200px;
+  height: 200px;
+  margin: 15px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.student-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}

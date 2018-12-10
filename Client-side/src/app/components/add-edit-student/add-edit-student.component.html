@@ -1,3 +1,12 @@
-<p>
-  add-edit-student works!
-</p>
+<div class="student-wrapper">
+  <input
+    style="display: none"
+    type="file"
+    (change)="onFileChanged($event)"
+    #fileInput
+  />
+  <button class="student-img-wrapper" (click)="fileInput.click()">
+    <img class="student-img" src="{{selectedImgUrl}}" />
+  </button>
+  <button (click)="onUpload()">Upload!</button>
+</div>

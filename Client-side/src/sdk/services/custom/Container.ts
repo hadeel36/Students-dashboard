@@ -1,36 +1,31 @@
 /* tslint:disable */
 import { Injectable, Inject, Optional } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { SDKModels } from './SDKModels';
 import { BaseLoopBackApi } from '../core/base.service';
 import { LoopBackConfig } from '../../lb.config';
 import { LoopBackAuth } from '../core/auth.service';
-import { LoopBackFilter,  } from '../../models/BaseModels';
 import { ErrorHandler } from '../core/error.service';
-import { Observable, Subject } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { Container } from '../../models/Container';
-
+import { Observable } from 'rxjs';
 
 /**
  * Api services for the `Container` model.
  */
 @Injectable()
 export class ContainerApi extends BaseLoopBackApi {
-
   constructor(
     @Inject(HttpClient) protected http: HttpClient,
     @Inject(SDKModels) protected models: SDKModels,
     @Inject(LoopBackAuth) protected auth: LoopBackAuth,
-    @Optional() @Inject(ErrorHandler) protected errorHandler: ErrorHandler
+    @Optional() @Inject(ErrorHandler) protected errorHandler: ErrorHandler,
   ) {
-    super(http,  models, auth, errorHandler);
+    super(http, models, auth, errorHandler);
   }
 
   /**
    * <em>
-         * (The remote method definition does not provide any description.)
-         * </em>
+   * (The remote method definition does not provide any description.)
+   * </em>
    *
    * @returns {object[]} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -42,20 +37,31 @@ export class ContainerApi extends BaseLoopBackApi {
    * </em>
    */
   public getContainers(customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/containers";
+    let _method: string = 'GET';
+    let _url: string =
+      LoopBackConfig.getPath() +
+      '/' +
+      LoopBackConfig.getApiVersion() +
+      '/containers';
     let _routeParams: any = {};
     let _postBody: any = {};
     let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    let result = this.request(
+      _method,
+      _url,
+      _routeParams,
+      _urlParams,
+      _postBody,
+      null,
+      customHeaders,
+    );
     return result;
   }
 
   /**
    * <em>
-         * (The remote method definition does not provide any description.)
-         * </em>
+   * (The remote method definition does not provide any description.)
+   * </em>
    *
    * @param {object} data Request data.
    *
@@ -70,25 +76,39 @@ export class ContainerApi extends BaseLoopBackApi {
    * This usually means the response is a `Container` object.)
    * </em>
    */
-  public createContainer(options: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "POST";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/containers";
+  public createContainer(
+    options: any = {},
+    customHeaders?: Function,
+  ): Observable<any> {
+    let _method: string = 'POST';
+    let _url: string =
+      LoopBackConfig.getPath() +
+      '/' +
+      LoopBackConfig.getApiVersion() +
+      '/containers';
     let _routeParams: any = {};
     let _postBody: any = {
-      options: options
+      options: options,
     };
     let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    let result = this.request(
+      _method,
+      _url,
+      _routeParams,
+      _urlParams,
+      _postBody,
+      null,
+      customHeaders,
+    );
     return result;
   }
 
   /**
    * <em>
-         * (The remote method definition does not provide any description.)
-         * </em>
+   * (The remote method definition does not provide any description.)
+   * </em>
    *
-   * @param {string} container 
+   * @param {string} container
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -96,27 +116,41 @@ export class ContainerApi extends BaseLoopBackApi {
    *
    * Data properties:
    *
-   *  - `` – `{}` - 
+   *  - `` – `{}` -
    */
-  public destroyContainer(container: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "DELETE";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/containers/:container";
+  public destroyContainer(
+    container: any,
+    customHeaders?: Function,
+  ): Observable<any> {
+    let _method: string = 'DELETE';
+    let _url: string =
+      LoopBackConfig.getPath() +
+      '/' +
+      LoopBackConfig.getApiVersion() +
+      '/containers/:container';
     let _routeParams: any = {
-      container: container
+      container: container,
     };
     let _postBody: any = {};
     let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    let result = this.request(
+      _method,
+      _url,
+      _routeParams,
+      _urlParams,
+      _postBody,
+      null,
+      customHeaders,
+    );
     return result;
   }
 
   /**
    * <em>
-         * (The remote method definition does not provide any description.)
-         * </em>
+   * (The remote method definition does not provide any description.)
+   * </em>
    *
-   * @param {string} container 
+   * @param {string} container
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -127,25 +161,39 @@ export class ContainerApi extends BaseLoopBackApi {
    * This usually means the response is a `Container` object.)
    * </em>
    */
-  public getContainer(container: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/containers/:container";
+  public getContainer(
+    container: any,
+    customHeaders?: Function,
+  ): Observable<any> {
+    let _method: string = 'GET';
+    let _url: string =
+      LoopBackConfig.getPath() +
+      '/' +
+      LoopBackConfig.getApiVersion() +
+      '/containers/:container';
     let _routeParams: any = {
-      container: container
+      container: container,
     };
     let _postBody: any = {};
     let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    let result = this.request(
+      _method,
+      _url,
+      _routeParams,
+      _urlParams,
+      _postBody,
+      null,
+      customHeaders,
+    );
     return result;
   }
 
   /**
    * <em>
-         * (The remote method definition does not provide any description.)
-         * </em>
+   * (The remote method definition does not provide any description.)
+   * </em>
    *
-   * @param {string} container 
+   * @param {string} container
    *
    * @returns {object[]} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -157,26 +205,37 @@ export class ContainerApi extends BaseLoopBackApi {
    * </em>
    */
   public getFiles(container: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/containers/:container/files";
+    let _method: string = 'GET';
+    let _url: string =
+      LoopBackConfig.getPath() +
+      '/' +
+      LoopBackConfig.getApiVersion() +
+      '/containers/:container/files';
     let _routeParams: any = {
-      container: container
+      container: container,
     };
     let _postBody: any = {};
     let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    let result = this.request(
+      _method,
+      _url,
+      _routeParams,
+      _urlParams,
+      _postBody,
+      null,
+      customHeaders,
+    );
     return result;
   }
 
   /**
    * <em>
-         * (The remote method definition does not provide any description.)
-         * </em>
+   * (The remote method definition does not provide any description.)
+   * </em>
    *
-   * @param {string} container 
+   * @param {string} container
    *
-   * @param {string} file 
+   * @param {string} file
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -187,28 +246,43 @@ export class ContainerApi extends BaseLoopBackApi {
    * This usually means the response is a `Container` object.)
    * </em>
    */
-  public getFile(container: any, file: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/containers/:container/files/:file";
+  public getFile(
+    container: any,
+    file: any,
+    customHeaders?: Function,
+  ): Observable<any> {
+    let _method: string = 'GET';
+    let _url: string =
+      LoopBackConfig.getPath() +
+      '/' +
+      LoopBackConfig.getApiVersion() +
+      '/containers/:container/files/:file';
     let _routeParams: any = {
       container: container,
-      file: file
+      file: file,
     };
     let _postBody: any = {};
     let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    let result = this.request(
+      _method,
+      _url,
+      _routeParams,
+      _urlParams,
+      _postBody,
+      null,
+      customHeaders,
+    );
     return result;
   }
 
   /**
    * <em>
-         * (The remote method definition does not provide any description.)
-         * </em>
+   * (The remote method definition does not provide any description.)
+   * </em>
    *
-   * @param {string} container 
+   * @param {string} container
    *
-   * @param {string} file 
+   * @param {string} file
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -216,34 +290,49 @@ export class ContainerApi extends BaseLoopBackApi {
    *
    * Data properties:
    *
-   *  - `` – `{}` - 
+   *  - `` – `{}` -
    */
-  public removeFile(container: any, file: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "DELETE";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/containers/:container/files/:file";
+  public removeFile(
+    container: any,
+    file: any,
+    customHeaders?: Function,
+  ): Observable<any> {
+    let _method: string = 'DELETE';
+    let _url: string =
+      LoopBackConfig.getPath() +
+      '/' +
+      LoopBackConfig.getApiVersion() +
+      '/containers/:container/files/:file';
     let _routeParams: any = {
       container: container,
-      file: file
+      file: file,
     };
     let _postBody: any = {};
     let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    let result = this.request(
+      _method,
+      _url,
+      _routeParams,
+      _urlParams,
+      _postBody,
+      null,
+      customHeaders,
+    );
     return result;
   }
 
   /**
    * <em>
-         * (The remote method definition does not provide any description.)
-         * </em>
+   * (The remote method definition does not provide any description.)
+   * </em>
    *
-   * @param {string} container 
+   * @param {string} container
    *
    * @param {object} data Request data.
    *
-   *  - `req` – `{object}` - 
+   *  - `req` – `{object}` -
    *
-   *  - `res` – `{object}` - 
+   *  - `res` – `{object}` -
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -251,33 +340,49 @@ export class ContainerApi extends BaseLoopBackApi {
    *
    * Data properties:
    *
-   *  - `result` – `{object}` - 
+   *  - `result` – `{object}` -
    */
-  public upload(container: any, req: any = {}, res: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "POST";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/containers/:container/upload";
-    let _routeParams: any = {
-      container: container
+  public upload(
+    image: any,
+    req: any = {},
+    res: any = {},
+    customHeaders?: Function,
+  ): Observable<any> {
+    let _method: string = 'POST';
+    let _url: string =
+      LoopBackConfig.getPath() +
+      '/' +
+      LoopBackConfig.getApiVersion() +
+      '/containers/storage/upload';
+    let _routeParams: any = {};
+    let _postBody: any = {
+      image: image,
     };
-    let _postBody: any = {};
     let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    let result = this.request(
+      _method,
+      _url,
+      _routeParams,
+      _urlParams,
+      _postBody,
+      null,
+      customHeaders,
+    );
     return result;
   }
 
   /**
    * <em>
-         * (The remote method definition does not provide any description.)
-         * </em>
+   * (The remote method definition does not provide any description.)
+   * </em>
    *
-   * @param {string} container 
+   * @param {string} container
    *
-   * @param {string} file 
+   * @param {string} file
    *
-   * @param {object} req 
+   * @param {object} req
    *
-   * @param {object} res 
+   * @param {object} res
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -285,17 +390,34 @@ export class ContainerApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public download(container: any, file: any, req: any = {}, res: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/containers/:container/download/:file";
+  public download(
+    container: any,
+    file: any,
+    req: any = {},
+    res: any = {},
+    customHeaders?: Function,
+  ): Observable<any> {
+    let _method: string = 'GET';
+    let _url: string =
+      LoopBackConfig.getPath() +
+      '/' +
+      LoopBackConfig.getApiVersion() +
+      '/containers/:container/download/:file';
     let _routeParams: any = {
       container: container,
-      file: file
+      file: file,
     };
     let _postBody: any = {};
     let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    let result = this.request(
+      _method,
+      _url,
+      _routeParams,
+      _urlParams,
+      _postBody,
+      null,
+      customHeaders,
+    );
     return result;
   }
 
@@ -304,6 +426,6 @@ export class ContainerApi extends BaseLoopBackApi {
    * i.e. `Container`.
    */
   public getModelName() {
-    return "Container";
+    return 'Container';
   }
 }
