@@ -17,6 +17,7 @@ Eslint
 
 ```
 Angular 6
+Angular material
 Tslint
 RXjs
 ```
