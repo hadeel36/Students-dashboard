@@ -65,7 +65,7 @@ export class AddEditStudentComponent implements OnInit {
     reader.readAsDataURL(event.target.files[0]);
   }
 
-  onUpload() {
+  uploadImg() {
     const uploadData = new FormData();
     uploadData.append(
       'myFile',
@@ -83,15 +83,26 @@ export class AddEditStudentComponent implements OnInit {
       .subscribe(res => {
         console.log(res);
         this.studentForm.controls['photo'].setValue(true);
+        this.studentApi
+          .patchAttributes(this.selectedStudentId, this.studentForm.value)
+          .subscribe();
       });
   }
 
   submit(studentFormValue) {
-    console.log(this.studentForm.value);
     if (this.action === 'add') {
-      this.studentApi
-        .create(studentFormValue)
-        .subscribe(res => console.log(res), err => console.error(err));
+      if (this.selectedFile) {
+        studentFormValue.photo = true;
+      }
+      this.studentApi.create(studentFormValue).subscribe(
+        res => {
+          if (this.selectedFile) {
+            this.selectedStudentId = res.id;
+            this.uploadImg();
+          }
+        },
+        err => console.error(err),
+      );
     } else if (this.action === 'edit') {
       this.studentApi
         .patchAttributes(this.selectedStudentId, studentFormValue)

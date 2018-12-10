@@ -9,7 +9,14 @@
     <button class="student-img-wrapper" (click)="fileInput.click()">
       <img class="student-img" src="{{selectedImgUrl}}" />
     </button>
-    <button mat-button color="primary" (click)="onUpload()">Upload</button>
+    <button
+      mat-button
+      color="primary"
+      *ngIf="action === 'edit'"
+      (click)="uploadImg()"
+    >
+      Upload
+    </button>
   </div>
 
   <div class="student-form-wrapper">

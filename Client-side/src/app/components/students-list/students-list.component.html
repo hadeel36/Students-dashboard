@@ -1,5 +1,19 @@
 <div class="students-list-wrapper">
-  <table mat-table [dataSource]="studentsList" class="students-list-table">
+  <div class="students-list-no-data" *ngIf="studentsCount === 0">
+    <h3>No data found</h3>
+    <h3>Add new student</h3>
+    <a routerLink="student/add">
+      <button mat-icon-button>
+        <mat-icon class="students-list-no-data__icon">person_add</mat-icon>
+      </button>
+    </a>
+  </div>
+  <table
+    mat-table
+    *ngIf="studentsCount !== 0"
+    [dataSource]="studentsList"
+    class="students-list-table"
+  >
     <!-- Photo Column -->
     <ng-container matColumnDef="photo">
       <th mat-header-cell *matHeaderCellDef></th>
@@ -50,6 +64,7 @@
   </table>
 
   <mat-paginator
+    *ngIf="studentsCount !== 0"
     class="students-list-paginator"
     [length]="studentsCount"
     [pageSize]="10"

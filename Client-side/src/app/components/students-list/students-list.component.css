@@ -16,3 +16,14 @@
   height: 30px;
   border-radius: 50%;
 }
+
+.students-list-no-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px;
+}
+
+.students-list-no-data__icon {
+  color: #2e164a;
+}

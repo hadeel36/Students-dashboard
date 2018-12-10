@@ -4,10 +4,11 @@ import { CommonModule } from '@angular/common';
 import { StudentsListComponent } from './students-list.component';
 // Modules
 import { MatModulesModule } from 'src/app/shared/mat-modules/mat-modules.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [StudentsListComponent],
-  imports: [MatModulesModule, CommonModule],
+  imports: [MatModulesModule, CommonModule, RouterModule],
   exports: [StudentsListComponent],
 })
 export class StudentsListModule {}
