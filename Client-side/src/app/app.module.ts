@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 // Modules
 import { SDKBrowserModule } from '../sdk';
 import { MatModulesModule } from './shared/mat-modules/mat-modules.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { StudentsListModule } from './components/students-list/students-list.module';
 import { AddEditStudentComponent } from './components/add-edit-student/add-edit-student.component';
@@ -20,6 +20,7 @@ import { AddEditStudentComponent } from './components/add-edit-student/add-edit-
     MatModulesModule,
     SDKBrowserModule.forRoot(),
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     StudentsListModule,
   ],

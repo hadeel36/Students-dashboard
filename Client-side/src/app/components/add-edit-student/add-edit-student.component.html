@@ -1,12 +1,78 @@
 <div class="student-wrapper">
-  <input
-    style="display: none"
-    type="file"
-    (change)="onFileChanged($event)"
-    #fileInput
-  />
-  <button class="student-img-wrapper" (click)="fileInput.click()">
-    <img class="student-img" src="{{selectedImgUrl}}" />
-  </button>
-  <button (click)="onUpload()">Upload!</button>
+  <div class="student-upload-img">
+    <input
+      style="display: none"
+      type="file"
+      (change)="onFileChanged($event)"
+      #fileInput
+    />
+    <button class="student-img-wrapper" (click)="fileInput.click()">
+      <img class="student-img" src="{{selectedImgUrl}}" />
+    </button>
+    <button mat-button color="primary" (click)="onUpload()">Upload</button>
+  </div>
+
+  <div class="student-form-wrapper">
+    <form
+      novalidate
+      name="studentForm"
+      [formGroup]="studentForm"
+      (ngSubmit)="submit(studentForm.value)"
+    >
+      <mat-form-field class="student-form-field" appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input
+          matInput
+          placeholder="First Name"
+          formControlName="first_name"
+          type="text"
+        />
+        <mat-error *ngIf="studentForm.controls['first_name'].invalid">
+          This field is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="student-form-field" appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input
+          matInput
+          placeholder="Last Name"
+          formControlName="last_name"
+          type="text"
+        />
+        <mat-error *ngIf="studentForm.controls['last_name'].invalid">
+          This field is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="student-form-field" appearance="outline">
+        <input
+          matInput
+          formControlName="birth_date"
+          [matDatepicker]="picker"
+          placeholder="Choose a date"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="student-form-field" appearance="outline">
+        <mat-label>Hobbies</mat-label>
+        <textarea
+          matInput
+          placeholder="Hobbies"
+          formControlName="hobbies"
+        ></textarea>
+      </mat-form-field>
+
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        [disabled]="studentForm.invalid"
+      >
+        {{ action === 'add' ? 'Create' : 'Update' }}
+      </button>
+    </form>
+  </div>
 </div>
